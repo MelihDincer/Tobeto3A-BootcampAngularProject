@@ -1,6 +1,6 @@
 import { GetlistBootcampResponse } from "../responses/bootcamp/getlist-bootcamp-response";
-import { responseModel } from "./responseModel";
+import { ResponseModel } from "./responseModel";
 
-export interface bootcampResponseModel extends responseModel{
-    data:GetlistBootcampResponse[]   
+export interface BootcampResponseModel extends ResponseModel{
+    data:GetlistBootcampResponse[]
 }
