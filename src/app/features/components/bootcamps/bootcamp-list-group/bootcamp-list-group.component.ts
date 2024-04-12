@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../../../../shared/shared.module';
-import { BootcampResponseModel } from '../../../models/responsemodel/bootcampResponseModel';
 import { BootcampService } from '../../../services/concretes/bootcamp.service';
 import { GetlistBootcampResponse } from '../../../models/responses/bootcamp/getlist-bootcamp-response';
 
@@ -22,6 +21,7 @@ export class BootcampListGroupComponent implements OnInit {
   ngOnInit(): void {
     this.getBootcamps();
   }
+
 getBootcamps(){
     this.bootcampService.getList().subscribe((response)=>{
       this.bootcamps=response.data;

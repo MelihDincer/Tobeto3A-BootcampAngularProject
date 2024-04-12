@@ -6,5 +6,5 @@ import { ListResponseModel } from '../../models/responsemodel/listResponseModel'
 @Injectable()
 export abstract class BootcampBaseService {
 
-  abstract getList(request:GetlistBootcampResponse):Observable<ListResponseModel<GetlistBootcampResponse>>
+  abstract getList():Observable<ListResponseModel<GetlistBootcampResponse>>
 }
