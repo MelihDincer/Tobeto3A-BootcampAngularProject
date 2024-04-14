@@ -91,10 +91,12 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@popperjs/core/dist/umd/popper-base.min.js",
+              "./node_modules/ngx-toastr/toastr.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/@popperjs/core/dist/umd/popper-base.min.js"
+            ]
           }
         }
       }
