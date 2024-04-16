@@ -94,9 +94,7 @@
               "./node_modules/ngx-toastr/toastr.css",
               "src/styles.scss"
             ],
-            "scripts": [
-              "./node_modules/@popperjs/core/dist/umd/popper-base.min.js"
-            ]
+            "scripts": []
           }
         }
       }

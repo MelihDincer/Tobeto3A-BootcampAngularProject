@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../../../../shared/shared.module';
 import { BootcampService } from '../../../services/concretes/bootcamp.service';
-import { GetlistBootcampResponse } from '../../../models/responses/bootcamp/getlist-bootcamp-response';
 import { PageRequest } from '../../../../core/models/page-request';
 import { BootcampListItemDto } from '../../../models/responses/bootcamp/bootcamp-list-item-dto';
 
@@ -16,8 +15,17 @@ import { BootcampListItemDto } from '../../../models/responses/bootcamp/bootcamp
   styleUrl: './bootcamp-list-group.component.scss'
 })
 export class BootcampListGroupComponent implements OnInit {
+  currentPageNumber!:number;
+  bootcamps: BootcampListItemDto={
+    index:0,
+    size:0,
+    count:0,
+    hasNext:false,
+    hasPrevious:false,
+    pages:0,
+    items:[]
+  };
 
-  bootcamps!: BootcampListItemDto;
   constructor(private bootcampService:BootcampService){}   
   readonly PAGE_SIZE=6;
   
@@ -28,6 +36,26 @@ export class BootcampListGroupComponent implements OnInit {
 getBootcamps(pageRequest:PageRequest){
     this.bootcampService.getList(pageRequest).subscribe((response)=>{
       this.bootcamps=response;
+      this.updateCurrentPageNumber();
     })
+  }
+
+  onViewMoreClicked():void{
+    const nextPageIndex = this.bootcamps.index+1;
+    const pageSize = this.bootcamps.size;
+
+    this.getBootcamps({page:nextPageIndex,pageSize})
+    this.updateCurrentPageNumber();
+  }
+
+  onPreviousPageClicked():void{
+    const previousPageIndex = this.bootcamps.index-1;
+    const pageSize = this.bootcamps.size;
+    this.getBootcamps({page:previousPageIndex,pageSize});
+    this.updateCurrentPageNumber();
+  }
+
+  updateCurrentPageNumber():void{
+    this.currentPageNumber=this.bootcamps.index+1;
   }
 }
