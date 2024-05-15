@@ -7,8 +7,7 @@ import { initFlowbite } from 'flowbite';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent implements OnInit{
-
   ngOnInit(): void {
    initFlowbite();   
-}
+  }
 }

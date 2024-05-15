@@ -4,12 +4,11 @@ import { CommonModule } from "@angular/common";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { RouterModule } from "@angular/router";
 import { FooterComponent } from "./components/footer/footer.component";
-// import { MenubarModule } from "primeng/menubar";
-// import { FilterBrandPipe } from "./pipes/filter-brand-pipe.pipe";
+import { FilterBootcampByInstructorPipe } from "./pipes/filter-bootcamp-by-instructor.pipe";
 
 @NgModule({
-    declarations:[NavbarComponent, FooterComponent],
-    exports:[NavbarComponent,FooterComponent],
+    declarations:[NavbarComponent, FooterComponent, FilterBootcampByInstructorPipe],
+    exports:[NavbarComponent,FooterComponent, FilterBootcampByInstructorPipe],
     imports:[CommonModule, RouterModule]
 
 })
